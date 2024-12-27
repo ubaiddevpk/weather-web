@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="cintainer-fluid">
+      <div class="container">
+        <div class="row"> 
+          <div class="col-sm-12 col-md-12 col-lg-12">
+              <span class="input">
+                <input type="text" class="cittyInput" placeholder="Enter city name hare">
+              </span> 
+              <span class="material-symbols-outlined" id="symbols" onclick="weather()">
+                search
+                </span>
+           <div class="output"><h1 class="output" >Weather will show hare</h1></div> 
+          <div class="timediv"> <span> <h1 id="clock"></h1></span> 
+            <span> <h6 id="time" ></h6></span> 
+            <span> <h6 id="date"></h6></span></div>
+        </div>
+      </div>
+    </div>
+   
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js">
+     
+
+  </script>
+    <script>   
+function settime1(){
+let time=new Date();
+let hour =time.getHours();
+if(hour>12){
+document.getElementById("time").innerHTML="PM";
+}
+else{
+  document.getElementById("time").innerHTML="AM";
+}
+let second=time.getSeconds();
+if(second<10){
+  second="0"+second;
+}
+let minute=time.getMinutes();
+if(minute<10){
+  minute="0"+minute;}
+  let hour1=time.getHours();
+  if(hour1>12){
+    hour1=hour1-12;}
+    if(hour1==0){
+      hour1=12;
+    }
+    if(hour1<10){
+      hour1="0"+hour1;
+    }
+let a=document.getElementById("clock").innerHTML=hour1+":"+minute+":"+second;
+let date=time.getDate()
+let year=time.getFullYear();
+let mont = time.toLocaleString('default', { month: 'short' }); 
+document.getElementById("date").innerHTML = date+"  "+ mont+" "+year;}
+setInterval(settime1,1000)
+    function weather(){
+      let Input = document.querySelector('.cittyInput').value;
+      let text=document.querySelector('.output');
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${Input}&appid=51ebd70ae79194eab6f9827a54124f05&units=metric`)
+  .then(function (response) {
+      text.innerHTML=`The weather in ${Input} is <br> <span id="ss"> ${response.data.main.temp}°C</span>`
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+    }
+  </script>
+
+  </body>
+</html>

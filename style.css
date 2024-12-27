@@ -1,0 +1,85 @@
+body{
+  padding: 0px;
+  margin: 0px;
+background-image: url(./assets/5b366e50225ce8e857ce3d07abb2b237.jpg);
+background-size: cover;
+
+height: 100vh;
+justify-content: center;
+align-items: center;
+display: grid;
+}
+.container{
+  display: grid;
+  background: transparent;
+  backdrop-filter: blur(5px); /* Blur effect */
+  box-shadow: 1px 5px 25px black;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Optional: Add a border */
+  display: flex;
+  width: 400px;
+  height: 500px;
+  border-radius: 20px;
+  justify-content: center;
+}
+.cittyInput{
+height: 40px;
+border-radius: 50px;
+width: 300px;
+backdrop-filter: 2px 4px 5px black; /* Blur effect */
+margin-top: 40px;
+background-color: transparent;
+box-shadow: 1px 1px 25px black;
+border: none;
+font-weight: bolder;
+
+}
+#symbols{
+  cursor: pointer;
+   position: relative;
+   right: 45px;
+   top: 5px;
+   background-color: orange;
+   border-radius: 50%;
+   font-weight: 30px;
+}
+.output{
+  font-size: 30px;
+  position: relative;
+  top: 20%;
+  font-weight: bolder;
+}
+#clock{
+  position: 
+  relative;
+  top: 50%;
+  left: 23%;
+  color: #000000;
+  font-size: 50px;
+}
+#time{
+  position: relative;
+  left: 82%;
+  bottom: 39px;
+  font-size: large;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+
+}
+#date{
+  position: relative;
+  left: 28%;
+  font-size: 30px;
+  color: rgb(28, 49, 23);
+}
+.timediv{
+  position: relative
+  ;
+  top: 30%;
+}
+#ss{
+  color: red;
+ position: relative;
+ left: 38%;
+ 
+ font-weight: bolder;
+}
